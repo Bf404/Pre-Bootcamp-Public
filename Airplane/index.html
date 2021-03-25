@@ -6,16 +6,16 @@
     <body>
         <style type="text/css">
         #ocean {
-            background-image: url("ocean.jpg");
-            width: 900px;
-            height: 700px;
+            background-image: url("OpenOcean.jpg");
+            width: 800px;
+            height: 750px;
             
         }
         .player{
             position: absolute;
             background-image: url("player.png");
             width: 70px;
-            height: 75;
+            height: 75px;
 
         }
         .enemy {
@@ -32,7 +32,7 @@
                
             </div>
             <div id="enemies">
-                <div class="enemy"></div>
+                
             </div>
         </div>
         
@@ -43,12 +43,17 @@
         }
         var enemies = [
             {left:350, top:200},
-            {left:450, top:250}
+            {left:450, top:250},
+            {left:550, top:300},
+            {left:250, top:350},
+            {left:700, top:400},
+            {left:200, top:450}
         ]
 
         function drawPlayer()
         {
-            var content = "<div class='player' style = left:"+player.left+"px; top: "+ player.top+"></div>";
+            var content = "<div class='player' style = 'left:"+
+            player.left+"px; top:"+ player.top+"px'></div>";
             document.getElementById("players").innerHTML = content;
 
         }
@@ -64,27 +69,28 @@
             document.getElementById("enemies").innerHTML = content;
         }
         drawPlayer();
-        drawEnimes()
+        drawEnimes();
         document.onkeydown = function(e)
         {
             if(e.keyCode == 37 ) { // LEFT
-                player.left--;
+                player.left-= 10;
 		
             
         }
-            else if (e.keyCode) { // RIGHT
-                player.left++;
+            else if (e.keyCode == 39) { // RIGHT
+                player.left+= 10;
        
         }
-            else if (e.keyCode) { // DOWN
-                player.top--;
+            else if (e.keyCode == 40) { // DOWN
+                player.top+= 10;
       
         
         }
-            else if (e.keyCode) { // UP
-                player.top++;
+            else if (e.keyCode == 38 ) { // UP
+                player.top-= 10;
      
     }
+    drawPlayer();
 
 
         }
