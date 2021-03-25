@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Airplane Game</title>
+    </head>
+    <body>
+        <style type="text/css">
+        #ocean {
+            background-image: url("ocean.jpg");
+            width: 900px;
+            height: 700px;
+            
+        }
+        .player{
+            position: absolute;
+            background-image: url("player.png");
+            width: 70px;
+            height: 75;
+
+        }
+        .enemy {
+            position: absolute;
+            background-image: url("enemy.png");
+            width: 70px;
+            height: 75px;
+            left: 300px;
+        }
+
+        </style>
+        <div id="ocean"> 
+            <div id="players">
+               
+            </div>
+            <div id="enemies">
+                <div class="enemy"></div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+        player = {
+            left: 450,
+            top:620
+        }
+        var enemies = [
+            {left:350, top:200},
+            {left:450, top:250}
+        ]
+
+        function drawPlayer()
+        {
+            var content = "<div class='player' style = left:"+player.left+"px; top: "+ player.top+"></div>";
+            document.getElementById("players").innerHTML = content;
+
+        }
+        function drawEnimes()
+        {
+            var content = "";
+            for(var idx = 0; idx < enemies.length; idx++)
+            {
+                content +="<div class='enemy' style = left:"+enemies[idx].left+"px; top: "+ 
+                enemies[idx].top+"></div>";
+               
+            }
+            document.getElementById("enemies").innerHTML = content;
+        }
+        drawPlayer();
+        drawEnimes()
+        document.onkeydown = function(e)
+        {
+            if(e.keyCode == 37 ) { // LEFT
+                player.left--;
+		
+            
+        }
+            else if (e.keyCode) { // RIGHT
+                player.left++;
+       
+        }
+            else if (e.keyCode) { // DOWN
+                player.top--;
+      
+        
+        }
+            else if (e.keyCode) { // UP
+                player.top++;
+     
+    }
+
+
+        }
+      
+        </script>
+    </body>
+</html>
